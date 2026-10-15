@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <title>Terres Infinies</title>
+    <meta
+      name="description"
+      content="Jeu 2D de plateforme et de combat dans un monde infini généré : stats, quêtes, minage, boutique et boss."
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Chakra+Petch:wght@500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <h1>Terres Infinies</h1>
+        <nav>
+          <button id="bStats" type="button">Héros (I)</button>
+          <button id="bHelp" type="button">Aide (H)</button>
+          <button id="bFull" type="button">Plein écran (F)</button>
+          <button id="bPause" type="button">Menu (Échap)</button>
+        </nav>
+      </header>
+      <div class="stage">
+        <canvas id="g" width="960" height="540" aria-label="Zone de jeu"></canvas>
+        <section class="panel" id="pStats" hidden><div id="sBody"></div></section>
+        <section class="help" id="pHelp" hidden>
+          <div>
+            <h2>Terres Infinies</h2>
+            <p>
+              Un monde sans fin à gauche et à droite. Il se génère devant toi, change de biome, et
+              cache un boss tous les 75 mètres.
+            </p>
+            <p>
+              <kbd>Z</kbd><kbd>Q</kbd><kbd>S</kbd><kbd>D</kbd> ou flèches : bouger, sauter (<kbd
+                >Z</kbd
+              >
+              / <kbd>Espace</kbd>), se garder (<kbd>S</kbd>)
+            </p>
+            <p>
+              <kbd>J</kbd> poing · <kbd>K</kbd> coup de pied · <kbd>L</kbd> boule de feu (20
+              énergie) · <kbd>Maj</kbd> esquive
+            </p>
+            <p>Enchaîne les coups pour monter le combo. Le poing renvoie les flèches.</p>
+            <p>
+              <kbd>E</kbd> parler aux villageois : quêtes, point de retour, puis boutique.
+              <kbd>B</kbd> ouvre la boutique à tout moment près d'un villageois : soins, équipement,
+              points de compétence, vente du sac.
+            </p>
+            <p><kbd>F</kbd> plein écran · <kbd>Échap</kbd> pause et sauvegarde.</p>
+            <p>
+              Clic gauche maintenu : miner. Clic droit : poser un bloc. <kbd>1</kbd>–<kbd>6</kbd> :
+              choisir le bloc. <kbd>C</kbd> : bois en planches.
+            </p>
+            <p>
+              <kbd>I</kbd> : stats et quêtes. Chaque niveau donne 3 points à répartir. Le jeu est
+              sauvegardé dans ton navigateur.
+            </p>
+            <button class="go" id="bGo" type="button">Jouer</button>
+          </div>
+        </section>
+        <section class="help" id="pDeath" hidden>
+          <div>
+            <h2>Fin de l'aventure</h2>
+            <p>Mode Hardcore : ta sauvegarde est effacée.</p>
+            <p class="mut" id="deathInfo"></p>
+            <button class="go" id="bDeath" type="button">Retour au menu</button>
+          </div>
+        </section>
+        <section class="panel" id="pShop" hidden></section>
+        <section class="menu" id="menu" hidden><div class="mbox" id="menuBox"></div></section>
+        <div class="touch" id="touch">
+          <div class="pad mv">
+            <button class="tb big" type="button" data-act="left">←</button>
+            <button class="tb big" type="button" data-act="right">→</button>
+          </div>
+          <div class="pad ac">
+            <button class="tb" type="button" data-act="jump">Saut</button>
+            <button class="tb" type="button" data-act="punch">Poing</button>
+            <button class="tb" type="button" data-act="kick">Pied</button>
+            <button class="tb" type="button" data-act="special">Feu</button>
+            <button class="tb" type="button" data-act="block">Garde</button>
+            <button class="tb" type="button" data-act="dash">Esq.</button>
+            <button class="tb" type="button" data-act="interact">Parler</button>
+            <button class="tb" type="button" data-act="shop">Boutique</button>
+            <button class="tb" type="button" id="bMode">Miner</button>
+          </div>
+        </div>
+      </div>
+      <p class="foot">
+        ZQSD / flèches · J poing · K pied · L feu · Maj esquive · E parler · B boutique · F plein
+        écran · clic miner · clic droit poser
+      </p>
+    </div>
+    <script src="js/core.js"></script>
+    <script src="js/world.js"></script>
+    <script src="js/tiles.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/fighters.js"></script>
+    <script src="js/enemies.js"></script>
+    <script src="js/bosses.js"></script>
+    <script src="js/npc.js"></script>
+    <script src="js/projectiles.js"></script>
+    <script src="js/mining.js"></script>
+    <script src="js/save.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/render-world.js"></script>
+    <script src="js/scenery.js"></script>
+    <script src="js/hud.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/input.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/fullscreen.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/session.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/loop.js"></script>
+  </body>
+</html>
