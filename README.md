@@ -4,25 +4,6 @@ Jeu 2D de plateforme et de combat dans un monde infini généré. Tu incarnes un
 
 Le jeu est en HTML, CSS et JavaScript pur. Aucune dépendance, aucune étape de compilation, aucune image : tout le décor et les personnages sont dessinés par le code.
 
-## Lancer le jeu
-
-Ouvre `index.html` dans un navigateur récent. Pour un serveur local :
-
-```bash
-python3 -m http.server 8000
-```
-
-Puis va sur `http://localhost:8000`.
-
-Les polices Bungee et Chakra Petch sont chargées depuis Google Fonts. Hors connexion, le jeu reste jouable avec les polices système.
-
-## Mettre en ligne avec GitHub Pages
-
-Deux possibilités :
-
-1. Dans les réglages du dépôt, onglet Pages, choisis la branche `main` et le dossier racine.
-2. Ou utilise le workflow fourni dans `.github/workflows/pages.yml` : dans Pages, choisis la source « GitHub Actions », puis chaque push sur `main` redéploie le jeu.
-
 ## Commandes
 
 | Action | Clavier | Tactile |
